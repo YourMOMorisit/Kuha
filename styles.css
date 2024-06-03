@@ -1,0 +1,209 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #87ceeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.scene {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.fire-pit {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 60px;
+    background-color: #654321;
+    border-radius: 50% 50% 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.fire {
+    width: 30px;
+    height: 60px;
+    background-color: orange;
+    position: absolute;
+    bottom: 0;
+    clip-path: polygon(50% 0%, 65% 35%, 100% 35%, 75% 50%, 85% 100%, 50% 75%, 15% 100%, 25% 50%, 0 35%, 35% 35%);
+    animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.smoke {
+    position: absolute;
+    bottom: 60px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(192, 192, 192, 0.8);
+    border-radius: 50%;
+    animation: rise 4s infinite;
+}
+
+.smoke1 {
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.smoke2 {
+    left: 40px;
+    animation-delay: 1s;
+}
+
+.smoke3 {
+    left: 60px;
+    animation-delay: 2s;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-50px) scale(1.2); opacity: 0.7; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+.angry-zander {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.zander-body {
+    width: 120px;
+    height: 50px;
+    background-color: darkgray;
+    border-radius: 50% / 40%;
+    position: relative;
+}
+
+.zander-eye {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    border: 2px solid black;
+}
+
+.zander-mouth {
+    width: 20px;
+    height: 10px;
+    background-color: black;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+}
+
+.zander-fin {
+    width: 20px;
+    height: 10px;
+    background-color: darkgray;
+    position: absolute;
+}
+
+.top-fin {
+    top: -10px;
+    left: 20px;
+    transform: rotate(45deg);
+}
+
+.bottom-fin {
+    bottom: -10px;
+    left: 20px;
+    transform: rotate(-45deg);
+}
+
+.zander-tail {
+    width: 20px;
+    height: 40px;
+    background-color: darkgray;
+    border-radius: 0 50% 50% 0;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+}
+
+.zander-text {
+    margin-left: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+.flying-joke {
+    position: absolute;
+    top: 50px;
+    left: 100%;
+    font-size: 16px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    animation: fly 10s linear forwards;
+    width: 400px;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(0);
+    }
+    90% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+}
+
+.flashing-text {
+    position: absolute;
+    bottom: 80px;
+    left: 10px;
+    font-size: 24px;
+    color: red;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.waving-jesus {
+    position: absolute;
+    bottom: 140px;
+    left: 10px;
+    font-size: 40px;
+    display: none;
+    animation: wave 1s infinite;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
