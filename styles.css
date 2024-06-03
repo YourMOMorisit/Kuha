@@ -127,15 +127,18 @@ body {
     text-align: center;
 }
 
-.text-container {
-    position: absolute;
-    top: 500px;
-    width: 100%;
-    text-align: center;
-}
-
 .flying-joke,
 .flashing-text,
 .waving-jesus {
     margin: 20px 0;
+    text-align: center;
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-weight: bold;
 }
