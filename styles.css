@@ -1,144 +1,235 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #87ceeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
     font-family: Arial, sans-serif;
 }
 
 .scene {
     position: relative;
-    width: 100%;
-    height: 500px;
-    background-color: #87CEEB;
+    width: 300px;
+    height: 400px;
 }
 
 .fire-pit {
     position: absolute;
-    bottom: 50px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    width: 100px;
+    height: 60px;
+    background-color: #654321;
+    border-radius: 50% 50% 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .fire {
     width: 30px;
-    height: 30px;
+    height: 60px;
     background-color: orange;
-    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    clip-path: polygon(50% 0%, 65% 35%, 100% 35%, 75% 50%, 85% 100%, 50% 75%, 15% 100%, 25% 50%, 0 35%, 35% 35%);
+    animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
 }
 
 .smoke {
-    width: 20px;
-    height: 20px;
-    background-color: gray;
-    border-radius: 50%;
     position: absolute;
-    top: -20px;
+    bottom: 60px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(192, 192, 192, 0.8);
+    border-radius: 50%;
+    animation: rise 4s infinite;
 }
 
 .smoke1 {
-    animation: smokeMove 4s infinite;
+    left: 20px;
+    animation-delay: 0s;
 }
 
 .smoke2 {
-    animation: smokeMove 4s infinite 1s;
+    left: 40px;
+    animation-delay: 1s;
 }
 
 .smoke3 {
-    animation: smokeMove 4s infinite 2s;
+    left: 60px;
+    animation-delay: 2s;
 }
 
-@keyframes smokeMove {
+@keyframes rise {
     0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(-100px) scale(2); opacity: 0; }
+    50% { transform: translateY(-50px) scale(1.2); opacity: 0.7; }
+    100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
 }
 
 .angry-zander {
     position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    display: flex;
+    align-items: center;
 }
 
 .zander-body {
+    width: 120px;
+    height: 50px;
+    background-color: darkgray;
+    border-radius: 50% / 40%;
     position: relative;
-    width: 150px;
-    height: 80px;
-    background-color: green;
-    border-radius: 50px;
 }
 
 .zander-eye {
-    position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background-color: white;
     border-radius: 50%;
-    top: 20px;
-    left: 20px;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    border: 2px solid black;
 }
 
 .zander-mouth {
-    position: absolute;
-    width: 30px;
+    width: 20px;
     height: 10px;
-    background-color: red;
+    background-color: black;
     border-radius: 0 0 10px 10px;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute;
+    top: 30px;
+    left: 60px;
 }
 
 .zander-fin {
-    position: absolute;
     width: 20px;
     height: 10px;
-    background-color: darkgreen;
+    background-color: darkgray;
+    position: absolute;
 }
 
 .top-fin {
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -10px;
+    left: 20px;
+    transform: rotate(45deg);
 }
 
 .bottom-fin {
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: -10px;
+    left: 20px;
+    transform: rotate(-45deg);
 }
 
 .zander-tail {
-    position: absolute;
     width: 20px;
     height: 40px;
-    background-color: green;
-    border-radius: 0 50px 50px 0;
+    background-color: darkgray;
+    border-radius: 0 50% 50% 0;
+    position: absolute;
+    top: 5px;
     right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .zander-text {
-    position: absolute;
-    top: 90px;
-    width: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    margin-left: 10px;
+    font-size: 16px;
+    color: black;
 }
 
-.flying-joke,
-.flashing-text,
-.waving-jesus {
-    margin: 20px 0;
-    text-align: center;
+.flying-joke {
+    position: absolute;
+    top: 50px;
+    left: 100%;
+    font-size: 16px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    animation: fly 10s linear forwards;
+    width: 400px;
 }
 
-.bottom-text {
+@keyframes fly {
+    0% {
+        transform: translateX(0);
+    }
+    90% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+}
+
+.flashing-text {
     position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
+    bottom: 80px;
+    left: 10px;
+    font-size: 24px;
     color: red;
-    font-weight: bold;
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    animation: flash 1s infinite;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.waving-jesus {
+    position: absolute;
+    bottom: 140px;
+    left: 10px;
+    font-size: 40px;
+    display: none;
+    animation: wave 1s infinite;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.epasovinnainen-frame {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000; /* Ensure it is on top of other elements */
+    text-align: center;
+}
+
+.epasovinnainen-frame a {
+    text-decoration: none;
+    color: #0000EE; /* Blue color for the link */
+}
+
+.epasovinnainen-frame a:hover {
+    text-decoration: underline;
+}
+
+.epasovinnainen-frame div {
+    margin-top: 5px; /* Space between the link and the text */
+    color: black;
 }
